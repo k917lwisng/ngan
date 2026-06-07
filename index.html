@@ -13,7 +13,6 @@
         }
 
         body {
-            /* Background bầu trời và cánh đồng cỏ Ghibli hoài niệm */
             background: linear-gradient(to bottom, #7dd3fc 0%, #bae6fd 40%, #e0f2fe 60%, #4ade80 65%, #22c55e 100%);
             min-height: 100vh;
             display: flex;
@@ -26,7 +25,6 @@
             padding: 20px;
         }
 
-        /* Hiệu ứng mây trôi lững lờ kiểu Ghibli */
         .cloud {
             position: absolute;
             background: rgba(255, 255, 255, 0.85);
@@ -50,7 +48,6 @@
             100% { left: 100vw; }
         }
 
-        /* Hộp quà / Màn hình chính */
         .main-container {
             background: rgba(255, 255, 255, 0.85);
             border: 4px solid #1e293b;
@@ -76,7 +73,6 @@
             text-shadow: 2px 2px 0px #fecdd3;
         }
 
-        /* KHUNG ẢNH POLAROID - NƠI CHỨA ẢNH CỦA HAI ĐỨA */
         .polaroid-frame {
             background: white;
             padding: 15px 15px 40px 15px;
@@ -93,7 +89,6 @@
         .polaroid-frame:hover {
             transform: rotate(1deg) scale(1.03);
         }
-        /* Băng keo dán ảnh dễ thương */
         .polaroid-frame::before {
             content: "";
             position: absolute;
@@ -113,7 +108,6 @@
             display: block;
         }
 
-        /* Chú thích dưới ảnh */
         .polaroid-caption {
             font-family: 'Pattaya', sans-serif;
             font-size: 20px;
@@ -126,7 +120,6 @@
             text-align: center;
         } 
 
-        /* Lời chúc chạy chữ */
         .love-letter {
             font-size: 16px;
             line-height: 1.6;
@@ -141,7 +134,6 @@
             border-left: 5px solid #059669;
         }
 
-        /* Nút bấm Phát nhạc & Tạo bất ngờ */
         .btn-play {
             font-family: 'Press Start 2P', cursive;
             font-size: 11px;
@@ -162,7 +154,6 @@
             box-shadow: 0px 0px 0px #9f1239;
         }
 
-        /* Cánh hoa/Trái tim rơi */
         .petal {
             position: absolute;
             font-size: 20px;
@@ -175,7 +166,6 @@
             100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Chỉ dẫn nhỏ dưới khung ảnh */
         .tip {
             font-size: 11px;
             color: #94a3b8;
@@ -212,7 +202,6 @@
         </audio>
 
     <script>
-        // Danh sách ảnh và chú thích lật trang (M chèn tên file ảnh của m vào đây)
         const imageList = [
             { src: "anh1.jpg", caption: "Ngày đầu bên nhau... 🌱" },
             { src: "anh2.jpg", caption: "Đi đâu cũng có nhau ✨" },
@@ -225,7 +214,6 @@
             const photoElem = document.getElementById("myPhoto");
             const captionElem = document.getElementById("photoCaption");
             
-            // Cập nhật ảnh và caption mượt mà
             photoElem.style.opacity = 0.3;
             setTimeout(() => {
                 photoElem.src = imageList[currentImgIndex].src;
@@ -234,7 +222,6 @@
             }, 150);
         }
 
-        // Lời chúc chạy chữ (M thích viết gì thì sửa đoạn văn ở dưới này nhé)
         const loveMessage = "Chúc mừng sinh nhật em bé của anh! Chúc em tuổi mới luôn mỉm cười thật tươi, bình yên và hạnh phúc giống như những thước phim Ghibli xinh đẹp vậy. Cảm ơn em vì đã đến, bên anh và cùng anh viết nên câu chuyện của chúng mình. Anh yêu em rất nhiều! 🌱✨🌸";
         let textIndex = 0;
 
@@ -242,30 +229,23 @@
             if (textIndex < loveMessage.length) {
                 document.getElementById("typed-text").innerHTML += loveMessage.charAt(textIndex);
                 textIndex++;
-                setTimeout(typeWriter, 55); // Tốc độ gõ (ms)
+                setTimeout(typeWriter, 55); 
             }
         }
 
-        // Hàm kích hoạt mọi thứ khi nhấn nút
         let initialized = false;
         function initGift() {
             if(initialized) return;
             initialized = true;
 
-            // 1. Phát nhạc Merry-Go-Round of Life (Ép trình duyệt chạy vì chính sách bảo mật bắt click mới cho phát)
             const music = document.getElementById("bgMusic");
-            // Tạm thời dùng một link nhạc trực tuyến ổn định làm mẫu, m có thể đổi nguồn nhạc ở thẻ <audio>
             music.src = "nhac.mp3"; 
-            music.play().catch(error => console.log("Chưa phát được nhạc do trình duyệt chặn, thử bấm lại nha: ", error));
 
-            // 2. Chạy chữ lời chúc
             document.getElementById("typed-text").innerHTML = "";
             typeWriter();
 
-            // 3. Tạo hiệu ứng hoa anh đào và tim bay lãng mạn liên tục
             setInterval(createFallingPetals, 300);
 
-            // 4. Đổi diện mạo nút bấm sau khi mở
             const btn = document.getElementById("startBtn");
             btn.innerHTML = "✨ ĐANG PHÁT NHẠC... 🌱";
             btn.style.backgroundColor = "#10b981";
@@ -274,7 +254,6 @@
             btn.style.transform = "none";
         }
 
-        // Hàm tạo hiệu ứng cánh hoa rơi bay bổng
         function createFallingPetals() {
             const icons = ['🌸', '✨', '❤️', '🌱', '☁️'];
             const petal = document.createElement('div');
@@ -282,12 +261,11 @@
             petal.innerText = icons[Math.floor(Math.random() * icons.length)];
             
             petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = (Math.random() * 3 + 4) + 's'; // thời gian rơi 4-7s
+            petal.style.animationDuration = (Math.random() * 3 + 4) + 's'; 
             petal.style.fontSize = (Math.random() * 15 + 15) + 'px';
             
             document.body.appendChild(petal);
             
-            // Xóa sau khi rơi xong để tránh nặng máy
             setTimeout(() => { petal.remove(); }, 7000);
         }
     </script>
