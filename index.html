@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Birthday Gift for My Love ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@500;700&family=Pattaya&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Background bầu trời và cánh đồng cỏ Ghibli hoài niệm */
+            background: linear-gradient(to bottom, #7dd3fc 0%, #bae6fd 40%, #e0f2fe 60%, #4ade80 65%, #22c55e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Hiệu ứng mây trôi lững lờ kiểu Ghibli */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 100px;
+            box-shadow: inset -5px -5px 0px rgba(0,0,0,0.05);
+            animation: moveCloud linear infinite;
+            z-index: 1;
+            image-rendering: pixelated;
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+        }
+        .cloud::before { width: 50px; height: 50px; top: -20px; left: 15px; }
+        .cloud::after { width: 70px; height: 70px; top: -35px; right: 15px; }
+
+        @keyframes moveCloud {
+            0% { left: -150px; }
+            100% { left: 100vw; }
+        }
+
+        /* Hộp quà / Màn hình chính */
+        .main-container {
+            background: rgba(255, 255, 255, 0.85);
+            border: 4px solid #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0px 12px 0px #1e293b;
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            position: relative;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: #be123c;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-shadow: 2px 2px 0px #fecdd3;
+        }
+
+        /* KHUNG ẢNH POLAROID - NƠI CHỨA ẢNH CỦA HAI ĐỨA */
+        .polaroid-frame {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+            margin: 0 auto 25px;
+            width: 280px;
+            position: relative;
+            transform: rotate(-2deg);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .polaroid-frame:hover {
+            transform: rotate(1deg) scale(1.03);
+        }
+        /* Băng keo dán ảnh dễ thương */
+        .polaroid-frame::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 35%;
+            width: 90px;
+            height: 25px;
+            background-color: rgba(253, 224, 71, 0.6);
+            transform: rotate(-3deg);
+        }
+
+        .polaroid-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border: 1px solid #e2e8f0;
+            display: block;
+        }
+
+        /* Chú thích dưới ảnh */
+        .polaroid-caption {
+            font-family: 'Pattaya', sans-serif;
+            font-size: 20px;
+            color: #475569;
+            margin-top: 15px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Lời chúc chạy chữ */
+        .love-letter {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 90px;
+            color: #334155;
+            font-weight: 700;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #059669;
+        }
+
+        /* Nút bấm Phát nhạc & Tạo bất ngờ */
+        .btn-play {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 11px;
+            background-color: #f43f5e;
+            color: white;
+            padding: 16px 20px;
+            border: 4px solid #9f1239;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px #9f1239;
+            transition: all 0.1s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-play:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px #9f1239;
+        }
+
+        /* Cánh hoa/Trái tim rơi */
+        .petal {
+            position: absolute;
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 5;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Chỉ dẫn nhỏ dưới khung ảnh */
+        .tip {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cloud" style="width: 120px; height: 40px; top: 10%; animation-duration: 25s; opacity: 0.7;"></div>
+    <div class="cloud" style="width: 160px; height: 50px; top: 25%; animation-duration: 35s; opacity: 0.6; animation-delay: -10s;"></div>
+    <div class="cloud" style="width: 100px; height: 35px; top: 45%; animation-duration: 20s; opacity: 0.5; animation-delay: -5s;"></div>
+
+    <div class="main-container">
+        <h1 id="title">✨ HAPPY BIRTHDAY ✨<br>MY LITTLE PRINCESS</h1>
+        
+        <div class="polaroid-frame" onclick="changeImage()">
+            <img class="polaroid-img" id="myPhoto" src="anh1.jpg" onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop&q=60'; alert('Mẹo: Nhớ bỏ ảnh tên anh1.jpg vào cùng thư mục để hiển thị ảnh của 2 đứa nhé!')" alt="Memory">
+            <div class="polaroid-caption" id="photoCaption">Chúng mình nè ❤️</div>
+        </div>
+        <div class="tip">(Bấm vào ảnh để xem hình tiếp theo nha)</div>
+
+        <div class="love-letter" id="typed-text"></div>
+
+        <button class="btn-play" id="startBtn" onclick="initGift()">
+            🎵 MỞ QUÀ & BẬT NHẠC
+        </button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+
+    <script>
+        // Danh sách ảnh và chú thích lật trang (M chèn tên file ảnh của m vào đây)
+        const imageList = [
+            { src: "anh1.jpg", caption: "Ngày đầu bên nhau... 🌱" },
+            { src: "anh2.jpg", caption: "Đi đâu cũng có nhau ✨" },
+            { src: "anh3.jpg", caption: "Yêu em nhiều hơn mỗi ngày ❤️" }
+        ];
+        let currentImgIndex = 0;
+
+        function changeImage() {
+            currentImgIndex = (currentImgIndex + 1) % imageList.length;
+            const photoElem = document.getElementById("myPhoto");
+            const captionElem = document.getElementById("photoCaption");
+            
+            // Cập nhật ảnh và caption mượt mà
+            photoElem.style.opacity = 0.3;
+            setTimeout(() => {
+                photoElem.src = imageList[currentImgIndex].src;
+                captionElem.innerText = imageList[currentImgIndex].caption;
+                photoElem.style.opacity = 1;
+            }, 150);
+        }
+
+        // Lời chúc chạy chữ (M thích viết gì thì sửa đoạn văn ở dưới này nhé)
+        const loveMessage = "Chúc mừng sinh nhật em bé của anh! Chúc em tuổi mới luôn mỉm cười thật tươi, bình yên và hạnh phúc giống như những thước phim Ghibli xinh đẹp vậy. Cảm ơn em vì đã đến, bên anh và cùng anh viết nên câu chuyện của chúng mình. Anh yêu em rất nhiều! 🌱✨🌸";
+        let textIndex = 0;
+
+        function typeWriter() {
+            if (textIndex < loveMessage.length) {
+                document.getElementById("typed-text").innerHTML += loveMessage.charAt(textIndex);
+                textIndex++;
+                setTimeout(typeWriter, 55); // Tốc độ gõ (ms)
+            }
+        }
+
+        // Hàm kích hoạt mọi thứ khi nhấn nút
+        let initialized = false;
+        function initGift() {
+            if(initialized) return;
+            initialized = true;
+
+            // 1. Phát nhạc Merry-Go-Round of Life (Ép trình duyệt chạy vì chính sách bảo mật bắt click mới cho phát)
+            const music = document.getElementById("bgMusic");
+            // Tạm thời dùng một link nhạc trực tuyến ổn định làm mẫu, m có thể đổi nguồn nhạc ở thẻ <audio>
+            music.src = "https://raw.githubusercontent.com/sk-p/Merry-Go-Round-of-Life/main/Howl's%20Moving%20Castle%20-%20Merry%20Go%20Round%20Of%20Life.mp3"; 
+            music.play().catch(error => console.log("Chưa phát được nhạc do trình duyệt chặn, thử bấm lại nha: ", error));
+
+            // 2. Chạy chữ lời chúc
+            document.getElementById("typed-text").innerHTML = "";
+            typeWriter();
+
+            // 3. Tạo hiệu ứng hoa anh đào và tim bay lãng mạn liên tục
+            setInterval(createFallingPetals, 300);
+
+            // 4. Đổi diện mạo nút bấm sau khi mở
+            const btn = document.getElementById("startBtn");
+            btn.innerHTML = "✨ ĐANG PHÁT NHẠC... 🌱";
+            btn.style.backgroundColor = "#10b981";
+            btn.style.borderColor = "#047857";
+            btn.style.boxShadow = "none";
+            btn.style.transform = "none";
+        }
+
+        // Hàm tạo hiệu ứng cánh hoa rơi bay bổng
+        function createFallingPetals() {
+            const icons = ['🌸', '✨', '❤️', '🌱', '☁️'];
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.innerText = icons[Math.floor(Math.random() * icons.length)];
+            
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 3 + 4) + 's'; // thời gian rơi 4-7s
+            petal.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            
+            document.body.appendChild(petal);
+            
+            // Xóa sau khi rơi xong để tránh nặng máy
+            setTimeout(() => { petal.remove(); }, 7000);
+        }
+    </script>
+</body>
+</html>
